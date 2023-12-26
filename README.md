@@ -15,4 +15,7 @@ pip install -r requirements.txt
 
 ## Files
 The dataset is structured in `train` and `test` folders with their corresponding csv files containing extra information in the `data` directory.
+
 The `checkpoints` folder contains the weights of the model on Imagenet (`xception-43020ad28.pth`) and the weights of the fine-tuned model on the embryo images (`ckpt.pth`).
+
+[EmbryoDataset.py](EmbryoDataset.py) contains the code to load the dataset for training and testing.
