@@ -29,7 +29,7 @@ class SeparableConv2d(nn.Module):
 
         self.conv1 = nn.Conv2d(in_channels,in_channels,kernel_size,stride,padding,dilation,groups=in_channels,bias=bias)
         self.pointwise = nn.Conv2d(in_channels,out_channels,1,1,0,1,1,bias=bias)
-    
+
     def forward(self,x):
         x = self.conv1(x)
         x = self.pointwise(x)
@@ -45,7 +45,7 @@ class Block(nn.Module):
             self.skipbn = nn.BatchNorm2d(out_filters)
         else:
             self.skip=None
-        
+
         self.relu = nn.ReLU(inplace=True)
         rep=[]
 
@@ -60,7 +60,7 @@ class Block(nn.Module):
             rep.append(self.relu)
             rep.append(SeparableConv2d(filters,filters,3,stride=1,padding=1,bias=False))
             rep.append(nn.BatchNorm2d(filters))
-        
+
         if not grow_first:
             rep.append(self.relu)
             rep.append(SeparableConv2d(in_filters,out_filters,3,stride=1,padding=1,bias=False))
@@ -101,7 +101,7 @@ class Xception(nn.Module):
         """
         super(Xception, self).__init__()
 
-        
+
         self.num_classes = num_classes
 
         self.conv1 = nn.Conv2d(3, 32, 3,2, 0, bias=False)
@@ -154,11 +154,11 @@ class Xception(nn.Module):
         x = self.conv1(x)
         x = self.bn1(x)
         x = self.relu(x)
-        
+
         x = self.conv2(x)
         x = self.bn2(x)
         x = self.relu(x)
-        
+
         x = self.block1(x)
         x = self.block2(x)
         x = self.block3(x)
@@ -171,11 +171,11 @@ class Xception(nn.Module):
         x = self.block10(x)
         x = self.block11(x)
         x = self.block12(x)
-        
+
         x = self.conv3(x)
         x = self.bn3(x)
         x = self.relu(x)
-        
+
         x = self.conv4(x)
         x = self.bn4(x)
         x = self.relu(x)
