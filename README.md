@@ -7,7 +7,7 @@ Here we can see examples of one good and one not embryos:
 
 
 ## Installation
-Install the required Python packages buy running the following line:
+Install the required Python packages by running the following line:
 ```bash
 pip install -r requirements.txt
 ```
