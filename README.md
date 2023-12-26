@@ -2,6 +2,7 @@
 In this project, we aimed to classify embryos based on their microscopic images. We used Xception model with pretrained weights on Imagenet. This project is based on the Xception architecture [in this repository](https://github.com/tstandley/Xception-PyTorch).
 
 Here we can see examples of one good and one not embryos:
+
 ![alt text](embryo_images.png)
 
 
